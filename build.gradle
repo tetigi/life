@@ -1,0 +1,39 @@
+buildscript {
+   repositories {
+     mavenCentral()
+   }
+
+   dependencies {
+     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+   }
+}
+
+apply plugin: 'application'
+apply plugin: 'idea'
+apply plugin: 'kotlin'
+
+mainClassName = "AppKt"
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
+    compile "com.sun.jersey:jersey-client:${jerseyVersion}"
+    compile "com.palantir.tokens:auth-tokens:${palantirAuthVersion}"
+    compile "com.palantir.remoting1:error-handling:${palantirRemotingVersion}"
+    compile "com.palantir.remoting1:jaxrs-clients:${palantirRemotingVersion}"
+    compile "com.palantir.remoting1:retrofit2-clients:${palantirRemotingVersion}"
+    compile "com.palantir.remoting1:jersey-servers:${palantirRemotingVersion}"
+
+    testCompile "org.jetbrains.kotlin:kotlin-test:${kotlinVersion}"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
+}
+
+run {
+    if ( project.hasProperty("appArgs") ) {
+        args appArgs.split(",")
+    }
+}
