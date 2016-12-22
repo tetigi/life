@@ -16,10 +16,8 @@ interface MonzoService {
     @Produces(MediaType.APPLICATION_JSON)
     fun getBalance(@HeaderParam(HttpHeaders.AUTHORIZATION) authHeader: AuthHeader, @QueryParam("account_id") accountId: String): MonzoBalance
 
-    /*
     @GET
     @Path("transactions")
     @Produces(MediaType.APPLICATION_JSON)
-    fun listTransactions(@HeaderParam(HttpHeaders.AUTHORIZATION) authHeader: AuthHeader, accountId: String): MonzoTransactionsResponse
-    */
+    fun listTransactions(@HeaderParam(HttpHeaders.AUTHORIZATION) authHeader: AuthHeader, @QueryParam("account_id") accountId: String): MonzoTransactionsResponse
 }
