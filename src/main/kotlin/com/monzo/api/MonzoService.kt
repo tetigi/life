@@ -6,6 +6,16 @@ import javax.ws.rs.core.HttpHeaders
 import javax.ws.rs.core.MediaType
 
 interface MonzoService {
+    @POST
+    @Path("/oauth2/token")
+    @Produces(MediaType.APPLICATION_JSON)
+    fun authorizeToken(authorizationRequest: MonzoAuthorizationRequest): MonzoTokenResponse
+
+    @POST
+    @Path("/oauth2/token")
+    @Produces(MediaType.APPLICATION_JSON)
+    fun refreshToken(refreshRequest: MonzoRefreshRequest): MonzoTokenResponse
+
     @GET
     @Path("/accounts")
     @Produces(MediaType.APPLICATION_JSON)
