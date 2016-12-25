@@ -29,6 +29,7 @@ dependencies {
     compile "com.palantir.remoting1:jersey-servers:${palantirRemotingVersion}"
     //compile "joda-time:joda-time:${jodaVersion}"
     compile "io.dropwizard:dropwizard-core:${dropwizardVersion}"
+    compile "com.mashape.unirest:unirest-java:${unirestVersion}"
 
     testCompile "org.jetbrains.kotlin:kotlin-test:${kotlinVersion}"
     testCompile "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}"
