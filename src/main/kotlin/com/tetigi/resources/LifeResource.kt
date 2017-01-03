@@ -40,7 +40,7 @@ class LifeResource(val lazyAuthHeader: () -> AuthHeader, val monzoService: Monzo
                 .mapValues { it.value.map { it.amount }.sum() }
                 .entries
                 .sortedBy { it.key }
-                .map { it.value }
+                .map { -1 * it.value }
                 .take(15)
 
         val frame2 = LametricGraphFrame(1, moneyPerWeekLast15Weeks)
