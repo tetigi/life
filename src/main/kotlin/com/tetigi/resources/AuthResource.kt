@@ -14,7 +14,7 @@ class AuthResource(val clientId: String, val clientSecret: String, val stateToke
     override fun authCallback(authorizationCode: String, stateToken: String): MonzoTokenResponse {
         println("Callback received!")
         if (stateToken != this.stateToken) {
-            //error("STATE TOKENS DON'T MATCH, ABORT!")
+            error("STATE TOKENS DON'T MATCH, ABORT!")
         }
 
         val tokenResponse = auth.authorizeToken(MonzoAuthorizationRequest(clientId, clientSecret, redirect, authorizationCode))
