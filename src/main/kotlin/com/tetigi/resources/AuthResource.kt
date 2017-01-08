@@ -20,6 +20,7 @@ class AuthResource(val clientId: String, val clientSecret: String, val stateToke
         val tokenResponse = auth.authorizeToken(MonzoAuthorizationRequest(clientId, clientSecret, redirect, authorizationCode))
 
         authHeader = RefreshingAuthToken(auth, tokenResponse.refresh_token, clientId, clientSecret)
+        println(authHeader)
 
         return tokenResponse
     }

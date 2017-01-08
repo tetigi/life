@@ -26,6 +26,7 @@ class MonzoTransaction {
     lateinit var counterparty: Map<String, Any>
     lateinit var scheme: String
     lateinit var dedupe_id: String
+    lateinit var decline_reason: String
     var originator: Boolean = false
     var include_in_spending: Boolean = false
 
