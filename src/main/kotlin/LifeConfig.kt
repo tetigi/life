@@ -5,4 +5,5 @@ class LifeConfig : Configuration() {
     lateinit var clientSecret: String
     lateinit var incoming: List<Int>
     lateinit var outgoing: List<Int>
+    lateinit var redirectUrl: String
 }

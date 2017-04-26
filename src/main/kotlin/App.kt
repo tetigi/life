@@ -1,6 +1,7 @@
 
 
 
+import com.google.common.net.UrlEscapers
 import com.monzo.api.MonzoService
 import com.monzo.api.auth.MonzoAuthService
 import com.palantir.remoting1.jaxrs.JaxRsClient
@@ -9,7 +10,6 @@ import com.tetigi.resources.LifeResource
 import io.dropwizard.Application
 import io.dropwizard.setup.Environment
 import org.apache.commons.lang3.RandomStringUtils
-
 
 class App : Application<LifeConfig>() {
     val USER_AGENT: String = "monzo"
@@ -30,7 +30,7 @@ class App : Application<LifeConfig>() {
             val clientId = configuration.clientId
             val clientSecret = configuration.clientSecret
             //val redirect = "http://li1522-73.members.linode.com:8080/oauth/callback"
-            val redirect = "http://localhost:8080/oauth/callback"
+            val redirect = UrlEscapers.urlPathSegmentEscaper().escape(configuration.redirectUrl)
             val state = RandomStringUtils.randomAlphanumeric(18)
 
             println("https://auth.getmondo.co.uk/?client_id=$clientId&redirect_uri=$redirect&response_type=code&state=$state")
